@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
 
 const menu = require('./menu-model');
 
@@ -31,6 +31,23 @@ router.get('/current', (req, res) => {
             console.log(err);
             res.status(500).json({ error: 'A server error has occurred' });
         })
+})
+
+router.post('/', (req, res) => {
+    let newItem = req.body;
+
+    if (!newItem.item || !newItem.price || !newItem.dinner_or_dessert) {
+        res.status(400).json({ errMsg: 'Item, price and dinner_or_dessert are required fields' });
+    } else {
+        menu.addMenuItem(newItem)
+            .then(item => {
+                res.status(201).json(item);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).json({ error: 'A server error has occurred' });
+            })
+    }
 })
 
 module.exports = router;
