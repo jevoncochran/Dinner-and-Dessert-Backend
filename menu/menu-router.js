@@ -3,6 +3,7 @@ const router = express.Router();
 
 const menu = require('./menu-model');
 
+// gets the full menu
 router.get('/', (req, res) => {
     menu.getFullMenu()
         .then(m => {
@@ -18,6 +19,7 @@ router.get('/', (req, res) => {
         })
 })
 
+// gets menu items that are "available today"
 router.get('/current', (req, res) => {
     menu.getTodaysMenu()
         .then(m => {
@@ -33,6 +35,7 @@ router.get('/current', (req, res) => {
         })
 })
 
+// adds new item to menu items list
 router.post('/', (req, res) => {
     let newItem = req.body;
 
@@ -48,6 +51,21 @@ router.post('/', (req, res) => {
                 res.status(500).json({ error: 'A server error has occurred' });
             })
     }
+})
+
+// updates menu items (price, description, image, available_today)
+router.patch('/item:itemId', (req, res) => {
+    const { itemId } = req.params;
+    const update = req.body;
+
+    menu.editMenuItem(update, itemId)
+        .then(item => {
+            res.status(200).json(item);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: 'A server error has occurred' });
+        })
 })
 
 module.exports = router;
