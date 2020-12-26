@@ -58,4 +58,18 @@ router.post("/details", (req, res) => {
     });
 });
 
+router.get("/:orderId/display", (req, res) => {
+  const { orderId } = req.params;
+
+  orders
+    .displayOrder(orderId)
+    .then((items) => {
+      res.status(200).json(items);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: "A server error has occurred" });
+    });
+});
+
 module.exports = router;
