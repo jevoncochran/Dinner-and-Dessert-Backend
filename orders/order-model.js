@@ -6,6 +6,7 @@ module.exports = {
   addOrder,
   addOrderDetails,
   findOrderDetailsById,
+  displayOrder,
 };
 
 function getAllOrders() {
@@ -15,6 +16,23 @@ function getAllOrders() {
 function findOrderById(id) {
   return db("orders").where({ id }).first();
 }
+
+// function findOrderById(id) {
+//   return db("orders as o")
+//     .select(
+//       "o.id as order_id",
+//       "o.customer",
+//       "o.date",
+//       "o.method",
+//       "o.address",
+//       "o.phone_number",
+//       "mi.item",
+//       "od.quantity"
+//     )
+//     .join("order_details as od", "o.id", "od.order_id")
+//     .join("menu_items as mi", "od.item_id", "mi.id")
+//     .where("o.id", id);
+// }
 
 function addOrder(order) {
   return db("orders")
@@ -36,4 +54,21 @@ function addOrderDetails(row) {
 
 function findOrderDetailsById(id) {
   return db("order_details").where({ id }).first();
+}
+
+function displayOrder(id) {
+  return db("orders as o")
+    .select(
+      "o.id as order_id",
+      "o.customer",
+      "o.date",
+      "o.method",
+      "o.address",
+      "o.phone_number",
+      "mi.item",
+      "od.quantity"
+    )
+    .join("order_details as od", "o.id", "od.order_id")
+    .join("menu_items as mi", "od.item_id", "mi.id")
+    .where("o.id", id);
 }
