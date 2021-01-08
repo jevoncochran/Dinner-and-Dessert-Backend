@@ -6,7 +6,7 @@ exports.up = function (knex) {
 
     tbl.string("description", 255);
 
-    tbl.decimal("price", 2, 2).notNullable();
+    tbl.decimal("price", 4, 2).notNullable();
 
     tbl.string("dinner_or_dessert").notNullable();
 
