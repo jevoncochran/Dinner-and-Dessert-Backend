@@ -1,8 +1,8 @@
 exports.seed = function (knex) {
   // Deletes ALL existing entries
-  return knex("orders")
-    .truncate()
-    .then(function () {
+  // return knex("orders")
+    // .truncate()
+    // .then(function () {
       // Inserts seed entries
       return knex("orders").insert([
         {
@@ -47,5 +47,5 @@ exports.seed = function (knex) {
           phone_number: "3134862345",
         },
       ]);
-    });
+    // });
 };
