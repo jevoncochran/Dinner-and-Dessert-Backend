@@ -8,13 +8,13 @@ exports.up = function (knex) {
 
     tbl.string("method").notNullable();
 
-    tbl.decimal("subtotal", 2, 2).notNullable();
+    tbl.decimal("subtotal", 4, 2).notNullable();
 
-    tbl.decimal("tip", 2, 2).notNullable();
+    tbl.decimal("tip", 4, 2).notNullable();
 
-    tbl.decimal("tax", 2, 2).notNullable();
+    tbl.decimal("tax", 4, 2).notNullable();
 
-    tbl.decimal("total", 2, 2).notNullable();
+    tbl.decimal("total", 4, 2).notNullable();
 
     tbl.string("address", 255);
 
