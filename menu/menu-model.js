@@ -18,7 +18,7 @@ function getTodaysMenu() {
 
 function addMenuItem(menuItem) {
   return db("menu_items")
-    .insert(menuItem)
+    .insert(menuItem, "id")
     .then((ids) => {
       const [id] = ids;
       return findMenuItemById(id);

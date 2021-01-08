@@ -36,7 +36,7 @@ function findOrderById(id) {
 
 function addOrder(order) {
   return db("orders")
-    .insert(order)
+    .insert(order, "id")
     .then((ids) => {
       const [id] = ids;
       return findOrderById(id);
