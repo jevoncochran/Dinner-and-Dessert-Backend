@@ -1,8 +1,4 @@
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  // return knex('menu_items').truncate()
-  // .then(function () {
-  // Inserts seed entries
   return knex("menu_items").insert([
     {
       item: "shrimp hibachi bowl",
@@ -119,5 +115,4 @@ exports.seed = function (knex) {
       category: "entree",
     },
   ]);
-  // });
 };
