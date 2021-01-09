@@ -35,7 +35,7 @@ exports.seed = function (knex) {
       available_today: true,
     },
     {
-      item: " 5 piece lamb chops",
+      item: "5 piece lamb chops",
       price: 20.0,
       dinner_or_dessert: "dinner",
       category: "entree",
@@ -45,7 +45,7 @@ exports.seed = function (knex) {
     },
     {
       item: "side of rice",
-      price: 8.0,
+      price: 08.0,
       dinner_or_dessert: "dinner",
       category: "side",
       available_today: true,
