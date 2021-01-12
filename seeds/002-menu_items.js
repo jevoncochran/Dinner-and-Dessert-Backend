@@ -41,7 +41,7 @@ exports.seed = function (knex) {
       category: "entree",
       available_today: true,
       image:
-        "https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/128815256_145973603938744_5310535067466434717_n.jpg?_nc_cat=105&ccb=2&_nc_sid=8bfeb9&_nc_ohc=-eruxqaC6YkAX9fG3MF&_nc_ht=scontent-sjc3-1.xx&oh=0bf35e2fcd73032487892a2c9056e889&oe=5FED6C61",
+        "https://www.cawineclub.com/images/recipes/406_main_VERVEINE_ROASTED_LAMB_CHOPS_508x336.jpg",
     },
     {
       item: "side of rice",
